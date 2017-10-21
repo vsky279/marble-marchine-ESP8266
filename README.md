@@ -32,7 +32,7 @@ STL models are in the folder [stl](./stl).
 
 ## Programming
 
-The main chip is ESP8266. I am using NodeMCU Lua ([https://github.com/nodemcu/nodemcu-firmware](https://github.com/nodemcu/nodemcu-firmware)) to program the ESP8266. The programming in Lua is very easy so the core program can have less than 120 lines including the web server used to adjust the clock.
+The main chip is ESP8266. I am using NodeMCU Lua ([https://github.com/nodemcu/nodemcu-firmware](https://github.com/nodemcu/nodemcu-firmware)) to program the ESP8266. The programming in Lua is very easy so the core program can have less than 120 lines including the web server to control the machine.
 
 A [NodeMCU custom builds](https://nodemcu-build.com/) tool can be used to compile the binary for ESP8266. Beside standard modules the following modules are used: `cron, enduser_setup, pwm, rtctime, sntp`. I have used the integer version of the firmware is used. Though float version should be fine too.
 
@@ -44,7 +44,7 @@ The speed can be adjusted by PWM regulation. The power is supplied via micro USB
 
 The program connects to the WIFI, synchronizes time and runs the motor every 15 minutes for short period and for 5 seconds every hour between 7am and 11pm. Actually it also checks whether I am at home by pinging my phone. If this functionality is required the `net_info` module has to be included. It isavailable here: https://github.com/vsky279/nodemcu-firmware/tree/ping. It is not deployed in the `dev` version so it needs to be included manually and compiled locally.
 
-ESP8266 exposes also a web server. It also exposes a telnet server so an OTA-like update of Lua codes can be performed.
+Beside the web server, ESP8266 exposes also a telnet server so an OTA-like update of Lua codes can be performed.
 
 ## Assembly
 ![](./images/marblem_02.jpg)
